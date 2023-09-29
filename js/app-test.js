@@ -79,6 +79,16 @@ function statiscticsTest(){
     console.log(JSON.stringify(expect)===JSON.stringify(actual));
 }
 
+const workers = [
+    { name: "Jimm", salary: 40000, department: "IT" },
+    { name: "Bob", salary: 60300, department: "HR" },
+    { name: "Stacy", salary: 15000, department: "IT" },
+    { name: "Tom", salary: 55200, department: "DEVOPS" },
+    { name: "Kate", salary: 25000, department: "IT" },
+    { name: "John", salary: 40000, department: "HR" },
+    { name: "Billy", salary: 60000, department: "DEVOPS" },
+  ];
+
 function findBiggestAvgSalaryDepartmentTest(){
 
     console.log(`6.Find department with the biggest avarage salary`);
