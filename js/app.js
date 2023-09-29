@@ -32,17 +32,7 @@ function calcPoints(win, draw, loss){
 // количество элементов,
 // среднее арифметическое.
 
-function statisctics(arr){
-
-    arr.sort((a,b) => a - b );
-
-    return {
-        max: arr[arr.length - 1],
-        min: arr[0],
-        size: arr.length,
-        avr: arr.reduce((sum, current) => sum + current)/arr.length
-    };
-}
+// function statisctics(arr);
 
 
 // 6.Написать функцию которая принимает массив работников компании 
