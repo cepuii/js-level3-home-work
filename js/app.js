@@ -2,7 +2,7 @@
 // которая принимает строку в качестве параметра и находит самое длинное слово в строке.
 
 function findBiggestWord(str){
-    return str.split(/[.,?!-:;"'()`]*\s+|[.,?!-:;"'`)]/).reduce((max,current) => max.length < current.length ? current : max);
+    return str.split(/[ .,?!-:;"'()`]+/).reduce((max,current) => max.length < current.length ? current : max);
 }
 
 // 2. написать функцию которая принимает число и возвращает перевернутое число
@@ -34,11 +34,9 @@ function calcPoints(win, draw, loss){
 
 function statisctics(arr){
 
-    arr.sort((a,b) => a - b );
-
     return {
-        max: arr[arr.length - 1],
-        min: arr[0],
+        max: Math.max(...arr),
+        min: Math.min(...arr),
         size: arr.length,
         avr: arr.reduce((sum, current) => sum + current)/arr.length
     };
@@ -49,10 +47,10 @@ function statisctics(arr){
 
 
 // Функция должна вернуть объект 
-// {department: ‘Some department’, avarage: ‘some avarage value’}. 
+// {department: ‘Some department’, average: ‘some average value’}. 
 // В этом объекте будет department с самой большой стредней зарплатой из всех departments. 
 
-function findBiggestAvarageSalaryDepartment(workers){
+function findBiggestAverageSalaryDepartment(workers){
 
     const departures = workers.reduce((acc, curr) => {
         
@@ -61,7 +59,7 @@ function findBiggestAvarageSalaryDepartment(workers){
         if(department !== undefined){
             department.workers++;
             department.salarySum += curr.salary;
-            department.avarage = department.salarySum / department.workers;
+            department.average = department.salarySum / department.workers;
 
         } else {
 
@@ -69,15 +67,15 @@ function findBiggestAvarageSalaryDepartment(workers){
                 department: curr.department,
                 workers: 1,
                 salarySum: curr.salary,
-                avarage: curr.salary
+                average: curr.salary
             })
         }
         return acc;
     }, []);
 
-    departures.sort((a,b) => b.avarage - a.avarage);
-    
-    return {department: departures[0].department, avarage: departures[0].avarage};
+    let {department, average} = departures.reduce((max, current) => max.average < current.average ? current : max);
+
+    return {department, average};
 }
 
 

@@ -91,11 +91,11 @@ const workers = [
 
 function findBiggestAvgSalaryDepartmentTest(){
 
-    console.log(`6.Find department with the biggest avarage salary`);
+    console.log(`6.Find department with the biggest average salary`);
 
-    let expect = {department: "DEVOPS", avarage: 57600};
-    let actual = findBiggestAvarageSalaryDepartment(workers);
+    let expect = {department: "DEVOPS", average: 57600};
+    let actual = findBiggestAverageSalaryDepartment(workers);
 
     console.log(actual);
-    console.log(expect.department === actual.department && expect.avarage === actual.avarage);
+    console.log(expect.department === actual.department && expect.average === actual.average);
 }
